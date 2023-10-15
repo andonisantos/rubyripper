@@ -33,7 +33,7 @@ module Metadata
       item.gsub!('>', '') #no greater than allowed in FAT
       item.gsub!('|', '') #no pipe allowed in FAT
       item.gsub!('\\', '') #the \\ means a normal \
-      item.gsub!('"', '')
+      item.gsub!(/[“"”]/, '')
       item.gsub!(" ", "_") if @prefs.noSpaces
       item.downcase! if @prefs.noCapitals
       item = super(item)
